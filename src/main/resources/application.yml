@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: cf-smoke-app
+logging:
+  level:
+    org.cloudfoundry: INFO
+    redis.clients: INFO
+    org.springframework.boot.actuate: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+management:
+  cloudfoundry:
+    enabled: true # See https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-cloudfoundry.html
+    skip-ssl-validation: false
+  info:
+    git:
+      mode: full
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+  health:
+    defaults:
+      enabled: true
+server.undertow.worker-threads: 5

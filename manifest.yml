@@ -1,0 +1,10 @@
+---
+applications:
+ - name: cf-smoke-app
+   instances: 1
+   memory: 256MB
+   timeout: 180
+   path: target/cf-smoke-app.jar
+   buildpack: java_buildpack_offline
+   env:
+    JAVA_OPTS : -Xss349k -XX:+UseSerialGC -XX:MaxRAM=72m -XX:ReservedCodeCacheSize=32M -Xms64m -Xmx160m
