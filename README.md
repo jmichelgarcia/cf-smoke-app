@@ -52,13 +52,13 @@ Health is the only Actuator endpoint exposed. Navigate to `/actuator` to view th
 
 ### Behavior when one service is down
 
-| Endpoint                | Result | HTTP Return Code
+| Endpoint                | Result | HTTP Return Code |
 |-------------------------|--------|-------------------|
 | /actuator/health        |  `{"status":"DOWN","details":{"rabbit":{"status":"DOWN","details":{"error":"org.springframework.amqp.AmqpAuthenticationException: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile."}},"diskSpace":{"status":"UP","details":{"total":1073741824,"free":888221696,"threshold":10485760}},"db":{"status":"UP","details":{"database":"MySQL","hello":1}},"redis":{"status":"UP","details":{"version":"5.0.2"}}}}` | 503 |
 | /actuator/health/rabbit  | `{"status":"DOWN","details":{"error":"org.springframework.amqp.AmqpAuthenticationException: com.rabbitmq.client.AuthenticationFailureException: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile."}}` | 503 |
 
 ### actuator/info
 
-Shows the commit information that the app is using.
+Shows the commit information that the app is using. Output below
 
 `{"build":{"version":"1.0.0","artifact":"cf-smoke-app","name":"Cloud Foundry Smoke Application","group":"com.jmichelgarcia","time":"2019-03-08T15:06:30.094Z"}}`
